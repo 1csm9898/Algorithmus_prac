@@ -1,0 +1,14 @@
+a=input()
+b=input()
+al=len(a)+1
+bl=len(b)+1
+
+array = [[0 for col in range(bl)] for row in range(al)]
+for i in range(1,al):
+    for j in range(1,bl):
+        if a[i-1]==b[j-1]:
+            array[i][j]=array[i - 1][j - 1] + 1
+        else:
+            array[i][j]=max(array[i-1][j],array[i][j-1])
+
+print(array[-1][-1])
